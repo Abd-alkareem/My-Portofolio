@@ -1,0 +1,614 @@
+:root {
+    --main-black: #333;
+    --main-white: #eee;
+    --main-dark: #222831;
+    --alt-dark: #393e46;
+    --fairuze: #00adb5;
+    --tr-3: 0.3s;
+}
+
+/*  */
+
+
+body {
+    background-color: var(--main-white);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+@media(max-width:991px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+}
+
+body::before {
+    content: "";
+    width: 800px;
+    height: 700px;
+    position: absolute;
+    display: block;
+    background-color: var(--main-black);
+    z-index: -1;
+    transform: rotate(62deg);
+    border-radius: 20px;
+    top: -50px;
+    left: -350px;
+    box-shadow: 0 0 5px 0 var(--main-black);
+}
+
+body::-webkit-scrollbar {}
+
+.lay-out {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 120%;
+    left: 0;
+    top: 0;
+    background-color: #000000c7;
+    z-index: 9999;
+}
+
+.lay-out.active {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* start header */
+header {
+    padding: 25px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media(max-width:577px) {
+    header .container {
+        flex-wrap: wrap;
+    }
+}
+
+header .container .logo {
+    font-family: 'Edu TAS Beginner';
+    color: var(--main-white);
+    width: 165px;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+header .logo:hover {
+    text-shadow: 0 0px 1px white, 0 0 3px white;
+}
+
+header .container .logo span {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: -7px;
+}
+
+@media(max-width:577px) {
+    header .container .links {
+        width: 100%;
+        order: 1;
+        margin-top: 20px;
+    }
+}
+
+header .container .links ul {
+    display: flex;
+    gap: 30px;
+}
+
+@media(max-width:577px) {
+    header .container .links ul {
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+header .container .links ul li a {
+    color: var(--main-black);
+    font-weight: 500;
+    transition: var(--tr-3);
+    font-size: 18px;
+    position: relative;
+    z-index: 1000;
+
+}
+
+@media(max-width:700px) {
+    header .container .links ul li a {
+        color: white;
+        mix-blend-mode: difference;
+    }
+}
+
+header .container .links ul li a.active,
+header .container .links ul li a:hover {
+    font-weight: bold;
+    text-shadow: 0 0 1px #333, 0 0 3px #333, 0 0 5px #333, 0 0 7px #333;
+    color: white;
+}
+
+header .container .sittings {
+    width: fit-content;
+    display: flex;
+    /* text-align: right; */
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+}
+
+header .container .sittings i {
+    color: var(--main-black);
+    background-color: var(--main-white);
+    box-shadow: 0 0 3px 0 #333;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--tr-3);
+}
+
+.sittings-minu {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    width: 300px;
+    top: 100px;
+    right: 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 0;
+    z-index: 5;
+}
+
+.sittings-minu .nav {
+    margin: 10px 15px;
+    border: 1px solid white;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    transition: var(--tr-3);
+    transform: translateX(1000px);
+
+}
+
+.sittings-minu .option {
+    margin: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr-3);
+    transform: translateX(1000px);
+    margin-right: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 1px 0 white, 0 0 3px 0 white;
+}
+
+.sittings-minu .option:hover {
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    overflow: visible;
+}
+
+.sittings-minu .option .dis {
+    content: "working on it";
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    display: block;
+    position: absolute;
+    background-color: #333;
+    left: -160px;
+    text-align: center;
+    color: white;
+    line-height: 35px;
+    opacity: 0;
+    z-index: -1000;
+    transition: var(--tr-3);
+    font-size: 18px;
+    z-index: -1;
+    border: 1px solid white;
+
+}
+
+.sittings-minu .option:hover .dis {
+    opacity: 1;
+}
+
+.sittings-minu .option.active,
+.sittings-minu .nav.active {
+    transform: translateX(0);
+}
+
+.sittings-minu .option.tr-d-none {
+    transition-delay: 0s !important;
+}
+
+
+header .container .sittings i:hover {
+    color: var(--main-white);
+    background-color: var(--main-black);
+}
+
+/* end header */
+
+/* start projects */
+
+
+.projects .container #projects-carousel {
+    min-height: 80vh;
+    position: relative;
+}
+
+
+
+.projects .container .carousel .controle {
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+
+
+@media(max-width:577px) {
+    .projects .container .carousel .controle {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+    }
+}
+
+.projects .container .carousel .controle>i {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: gainsboro;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #494444;
+}
+
+.projects .container .carousel .controle>i:hover {
+    color: white;
+    box-shadow: 0 0 2px 0 black, 0 0 4px 0 black;
+    background-color: #494444 !important;
+}
+
+.projects .container .carousel .controle>i:nth-child(1) {
+    clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
+    left: 7px;
+}
+
+/* .projects .container .carousel .controle>i:nth-child(1)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 154%;
+    background-color: #494444;
+    transform: rotate(-26deg);
+    top: -6px;
+    left: 68px;
+} */
+
+.projects .container .carousel .controle>i:nth-child(2) {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%);
+    right: 8px;
+}
+
+.projects .container .carousel .carousel-inner {
+    min-height: 80vh;
+}
+
+.projects .container .carousel .carousel-item {
+    min-height: 80vh;
+    align-items: flex-end;
+
+}
+
+.projects .carousel-item-prev,
+.projects .carousel-item-next,
+.projects .carousel-item.active {
+    display: flex !important;
+}
+
+@media(max-width:991px) {
+    .projects .container .carousel .carousel-item {
+        flex-wrap: wrap;
+    }
+}
+
+.projects .container .carousel .carousel-item .part {
+    position: relative;
+    z-index: 1000;
+}
+
+.projects .container .carousel .carousel-item .part .touch-pro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+
+
+.projects .container .carousel .carousel-item .part.light {
+    z-index: 10000;
+    box-shadow: 0 0 1px 0 white,
+        0 0 3px 0 white;
+}
+
+
+.projects .container .carousel .carousel-item .part:nth-child(1) {
+    width: 35%;
+    min-height: 75vh;
+    margin: 2.5vh 20px;
+    background-color: #434343;
+    cursor: pointer;
+    padding: 20px;
+    /* z-index: 1; */
+}
+
+@media(max-width:991px) {
+    .projects .container .carousel .carousel-item .part:nth-child(1) {
+        width: 50%;
+    }
+}
+
+@media(max-width:767px) {
+    .projects .container .carousel .carousel-item .part:nth-child(1) {
+        width: 100%;
+        margin-top: 80px;
+    }
+}
+
+@media(max-width:577px) {
+    .projects .container .carousel .carousel-item .part:nth-child(1) {
+        margin: 80px 20px 20px 20px;
+    }
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .pro-name {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .pro-date {
+    color: white;
+    font-family: 'Edu TAS Beginner';
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .used-tecno {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .used-tecno span {
+    margin-bottom: 10px;
+    font-size: 22px;
+    list-style: none;
+    color: white;
+    width: 100%;
+    margin-left: 0;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .used-tecno ul {
+    padding: 0;
+}
+
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .used-tecno ul li {
+    list-style: initial;
+    color: white;
+    margin-left: 24px;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .about-pro {
+    color: white;
+    font-family: 'Edu TAS Beginner';
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(1) .about-pro span {
+    display: block;
+    color: white;
+    font-size: 22px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(2) {
+    width: calc((65% - 80px) / 2);
+    min-height: 62vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+
+
+@media(max-width:991px) {
+    .projects .container .carousel .carousel-item .part:nth-child(2) {
+        width: calc(50% - 60px);
+    }
+}
+
+@media(max-width:767px) {
+    .projects .container .carousel .carousel-item .part:nth-child(2) {
+        width: calc(50% - 30px);
+        margin: 20px 10px 20px 20px;
+    }
+}
+
+@media(max-width:577px) {
+    .projects .container .carousel .carousel-item .part:nth-child(2) {
+        width: 100%;
+        margin: 20px;
+    }
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(2) .frame {
+    width: 100%;
+    height: 65vh;
+    background-color: #434343;
+    cursor: pointer;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(2) .frame::-webkit-scrollbar {
+    display: none;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(2) .frame img {
+    width: 100%;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) {
+    width: calc((65% - 80px) / 2);
+    min-height: 62vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+@media(max-width:991px) {
+    .projects .container .carousel .carousel-item .part:nth-child(3) {
+        width: calc(100% - 40px);
+        flex-direction: row;
+        margin: auto;
+        height: fit-content;
+        min-height: initial;
+        padding-bottom: 20px;
+    }
+}
+
+@media(max-width:767px) {
+    .projects .container .carousel .carousel-item .part:nth-child(3) {
+        width: calc(50% - 30px);
+        flex-direction: column;
+        height: 62vh;
+        padding-bottom: 0;
+        margin: 20px 20px 20px 10px;
+    }
+}
+
+@media(max-width:577px) {
+    .projects .container .carousel .carousel-item .part:nth-child(3) {
+        width: 100%;
+        margin: 20px;
+    }
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame {
+    width: 100%;
+    height: 30vh;
+    background-color: #434343;
+    cursor: pointer;
+
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame:last-child {
+    width: 100%;
+    height: 30vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    background-color: transparent;
+    cursor: initial;
+
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame:last-child .mine-img {
+    background-color: #434343;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame:last-child .mine-img i {
+    color: gainsboro;
+    font-size: 25px;
+
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame:last-child .mine-img span {
+    font-weight: 600;
+    color: transparent;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    transition: var(--tr-3);
+    padding: 0 2px;
+}
+
+.projects .container .carousel .carousel-item .part:nth-child(3) .frame:last-child .mine-img:hover span {
+    transition: var(--tr-3);
+    color: var(--main-white);
+}
+
+/* end projects */

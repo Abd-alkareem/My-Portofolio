@@ -1,0 +1,332 @@
+:root {
+    --main-black: #333;
+    --main-white: #eee;
+    --main-dark: #222831;
+    --alt-dark: #393e46;
+    --fairuze: #00adb5;
+    /* --alt-fairuze: #DAFFFB; */
+    --tr-3: 0.3s;
+}
+
+/*  */
+
+
+body {
+    background-color: var(--main-white);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+@media(max-width:767px) {
+    body {
+        overflow-y: visible;
+    }
+}
+
+body::before {
+    content: "";
+    width: 800px;
+    height: 700px;
+    position: absolute;
+    display: block;
+    background-color: var(--main-black);
+    z-index: -1;
+    transform: rotate(59deg);
+    border-radius: 20px;
+    top: -50px;
+    left: -350px;
+    box-shadow: 0 0 5px 0 var(--main-black);
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* start header */
+header {
+    padding: 25px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media(max-width:577px) {
+    header .container {
+        flex-wrap: wrap;
+    }
+}
+
+header .container .logo {
+    font-family: 'Edu TAS Beginner';
+    color: var(--main-white);
+    width: 165px;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header .container .logo:hover {
+    text-shadow: 0 0px 1px var(--main-white), 0 0 2px var(--main-white);
+}
+
+
+
+header .container .logo span {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: -7px;
+}
+
+@media(max-width:577px) {
+    header .container .links {
+        width: 100%;
+        order: 1;
+        margin-top: 20px;
+    }
+}
+
+header .container .links ul {
+    display: flex;
+    gap: 30px;
+}
+
+@media(max-width:577px) {
+    header .container .links ul {
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+header .container .links ul li a {
+    color: var(--main-black);
+    font-weight: 500;
+    transition: var(--tr-3);
+    font-size: 18px;
+    position: relative;
+    z-index: 1000;
+
+}
+
+@media(max-width:700px) {
+    header .container .links ul li a {
+        color: white;
+        mix-blend-mode: difference;
+    }
+}
+
+header .container .links ul li a:hover {
+
+    font-weight: bold;
+    text-shadow: 0 0 1px #333, 0 0 3px #333, 0 0 5px #333, 0 0 7px #333;
+    color: white;
+}
+
+header .container .sittings {
+    width: fit-content;
+    display: flex;
+    /* text-align: right; */
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+}
+
+header .container .sittings i {
+    color: var(--main-dark);
+    background-color: var(--main-white);
+    box-shadow: 0 0 3px 0 #333;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--tr-3);
+}
+
+.sittings-minu {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    width: 300px;
+    top: 100px;
+    right: 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 0;
+    z-index: 5;
+}
+
+.sittings-minu .nav {
+    margin: 10px 15px;
+    border: 1px solid white;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    transition: var(--tr-3);
+    transform: translateX(1000px);
+
+}
+
+.sittings-minu .option {
+    margin: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr-3);
+    transform: translateX(1000px);
+    margin-right: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 1px 0 white, 0 0 3px 0 white;
+}
+
+.sittings-minu .option:hover {
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    overflow: visible;
+}
+
+.sittings-minu .option .dis {
+    content: "working on it";
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    display: block;
+    position: absolute;
+    background-color: #333;
+    left: -160px;
+    text-align: center;
+    color: white;
+    line-height: 35px;
+    opacity: 0;
+    z-index: -1000;
+    transition: var(--tr-3);
+    font-size: 18px;
+    z-index: -1;
+    border: 1px solid white;
+
+}
+
+.sittings-minu .option:hover .dis {
+    opacity: 1;
+}
+
+.sittings-minu .option.active,
+.sittings-minu .nav.active {
+    transform: translateX(0);
+}
+
+.sittings-minu .option.tr-d-none {
+    transition-delay: 0s !important;
+}
+
+.sittings-minu.option span {}
+
+header .container .sittings i:hover {
+    color: var(--main-white);
+    background-color: var(--main-black);
+}
+
+/* end header */
+
+/* start landing */
+
+.landing .container {
+    display: flex;
+
+}
+
+@media(max-width:767px) {
+    .landing .container {
+        flex-direction: column;
+    }
+}
+
+.landing .container .half:first-child {
+    flex-basis: 50%;
+    min-height: 80vh;
+    position: relative;
+}
+
+.landing .container .half:first-child img {
+    margin-top: -50px;
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.landing .container .half:last-child {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10px;
+    min-height: 80vh;
+}
+
+@media(max-width:767px) {
+    .landing .container .half:last-child {
+        justify-content: flex-start;
+        padding-top: 20px;
+        height: 50vh !important;
+        min-height: 0;
+    }
+}
+
+.landing .container .half:last-child .main {
+    color: white;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: -70px;
+    text-transform: uppercase;
+}
+
+.landing .container .half:last-child .sec {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.landing .container .half:last-child p {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    mix-blend-mode: difference;
+
+}
+
+/* end landing */
